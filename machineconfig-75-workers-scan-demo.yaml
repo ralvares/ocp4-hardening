@@ -294,6 +294,99 @@ spec:
           filesystem: root
           mode: 420
           path: /etc/modprobe.d/75-kernel_module_squashfs_disabled.conf
+        - contents:
+            source: 'data:,net.ipv4.conf.all.accept_redirects%3D0'
+            verification: {}
+          filesystem: root
+          mode: 420
+          path: /etc/sysctl.d/75-sysctl_net_ipv4_conf_all_accept_redirects.conf
+        - contents:
+            source: 'data:,net.ipv6.conf.all.accept_source_route%3D0'
+            verification: {}
+          filesystem: root
+          mode: 420
+          path: /etc/sysctl.d/75-sysctl_net_ipv6_conf_all_accept_source_route.conf
+        - contents:
+            source: 'data:,net.ipv4.conf.default.accept_redirects%3D0'
+            verification: {}
+          filesystem: root
+          mode: 420
+          path: /etc/sysctl.d/75-sysctl_net_ipv4_conf_default_accept_redirects.conf
+        - contents:
+            source: 'data:,net.ipv4.conf.default.log_martians%3D1'
+            verification: {}
+          filesystem: root
+          mode: 420
+          path: /etc/sysctl.d/75-sysctl_net_ipv4_conf_default_log_martians.conf
+        - contents:
+            source: 'data:,net.ipv6.conf.default.accept_source_route%3D0'
+            verification: {}
+          filesystem: root
+          mode: 420
+          path: >-
+            /etc/sysctl.d/75-sysctl_net_ipv6_conf_default_accept_source_route.conf
+        - contents:
+            source: 'data:,net.ipv4.conf.default.secure_redirects%3D0'
+            verification: {}
+          filesystem: root
+          mode: 420
+          path: /etc/sysctl.d/75-sysctl_net_ipv4_conf_default_secure_redirects.conf
+        - contents:
+            source: 'data:,net.ipv4.conf.all.log_martians%3D1'
+            verification: {}
+          filesystem: root
+          mode: 420
+          path: /etc/sysctl.d/75-sysctl_net_ipv4_conf_all_log_martians.conf
+        - contents:
+            source: 'data:,net.ipv4.conf.all.secure_redirects%3D0'
+            verification: {}
+          filesystem: root
+          mode: 420
+          path: /etc/sysctl.d/75-sysctl_net_ipv4_conf_all_secure_redirects.conf
+        - contents:
+            source: 'data:,net.ipv4.icmp_echo_ignore_broadcasts%3D1'
+            verification: {}
+          filesystem: root
+          mode: 420
+          path: /etc/sysctl.d/75-sysctl_net_ipv4_icmp_echo_ignore_broadcasts.conf
+        - contents:
+            source: 'data:,net.ipv4.tcp_syncookies%3D1'
+            verification: {}
+          filesystem: root
+          mode: 420
+          path: /etc/sysctl.d/75-sysctl_net_ipv4_tcp_syncookies.conf
+        - contents:
+            source: 'data:,CtrlAltDelBurstAction%3Dnone'
+            verification: {}
+          filesystem: root
+          mode: 420
+          path: /etc/systemd/system.conf.d/disable_ctrlaltdelete_burstaction.conf
+        - contents:
+            source: 'data:,net.ipv4.conf.default.accept_source_route%3D0'
+            verification: {}
+          filesystem: root
+          mode: 420
+          path: >-
+            /etc/sysctl.d/75-sysctl_net_ipv4_conf_default_accept_source_route.conf
+        - contents:
+            source: 'data:,net.ipv4.conf.default.rp_filter%3D1'
+            verification: {}
+          filesystem: root
+          mode: 420
+          path: /etc/sysctl.d/75-sysctl_net_ipv4_conf_default_rp_filter.conf
+        - contents:
+            source: 'data:,net.ipv6.conf.default.accept_ra%3D0'
+            verification: {}
+          filesystem: root
+          mode: 420
+          path: /etc/sysctl.d/75-sysctl_net_ipv6_conf_default_accept_ra.conf
+        - contents:
+            source: 'data:,net.ipv4.icmp_ignore_bogus_error_responses%3D1'
+            verification: {}
+          filesystem: root
+          mode: 420
+          path: >-
+            /etc/sysctl.d/75-sysctl_net_ipv4_icmp_ignore_bogus_error_responses.conf  
     systemd:
       units:
         - enabled: false
@@ -304,9 +397,10 @@ spec:
           name: systemd-coredump.socket
   fips: false
   kernelArguments:
-    - pti=on
+    - slub_debug=P
     - audit=1
     - page_poison=1
+    - pti=on
     - audit_backlog_limit=8192
   kernelType: default
   osImageURL: ''
