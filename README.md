@@ -1,4 +1,4 @@
-= Profile NIST National Checklist for Red Hat Enterprise Linux CoreOS
+Profile NIST National Checklist for Red Hat Enterprise Linux CoreOS
 
 This compliance profile reflects the core set of security
 related configuration settings for deployment of Red Hat Enterprise
@@ -30,3 +30,8 @@ content as minor divergences, such as bugfixes, work through the
 consensus and release processes.
 
 Profile ID	xccdf_org.ssgproject.content_profile_moderate
+
+
+git clone https://github.com/ralvares/ocp4-hardening/
+cd ocp4-hardening
+oc apply -f *.yaml
