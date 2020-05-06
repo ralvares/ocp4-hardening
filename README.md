@@ -31,7 +31,8 @@ consensus and release processes.
 
 Profile ID	xccdf_org.ssgproject.content_profile_moderate
 
-
 git clone https://github.com/ralvares/ocp4-hardening/
+
 cd ocp4-hardening
+
 oc apply -f *.yaml
